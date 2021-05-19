@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlatformCachePartition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Custom partition and marked as default.</description>
+    <isDefaultPartition>true</isDefaultPartition>
+    <masterLabel>myPartition</masterLabel>
+    <platformCachePartitionTypes>
+   ​​     <​allocatedCapacity>10</​allocatedCapacity>
+​​        <​​allo​ca​tedPurchasedCapacity>5</​​allo​ca​tedPurchasedCapacity>
+        <cacheType>Session</cacheType>
+    </platformCachePartitionTypes>
+    <platformCachePartitionTypes>
+    ​​    <​allocatedCapacity>5</​allocatedCapacity>
+​​        <​​allo​ca​tedPurchasedCapacity>5</​​allo​ca​tedPurchasedCapacity>
+        <cacheType>Organization</cacheType>
+    </platformCachePartitionTypes>​
+</PlatformCachePartition> 
