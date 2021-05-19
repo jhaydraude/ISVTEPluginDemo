@@ -25,7 +25,9 @@ global class MyBatchClass implements
                 recordsProcessed = recordsProcessed + 1;
         }
         update contacts;
-    }    
+    }   
+    
+    //Hackey bit to get around those stupid governor limits
 
     global void finish(Database.BatchableContext bc){
         System.debug(recordsProcessed + ' records processed. Shazam!');

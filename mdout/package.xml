@@ -49,6 +49,10 @@
     <members>svg</members>
   </types>
   <types>
+    <name>PlatformCachePartition</name>
+    <members>PlatformCache</members>
+  </types>
+  <types>
     <name>ApexClass</name>
     <members>AsyncNotificationController</members>
     <members>CandidateGeneralController</members>

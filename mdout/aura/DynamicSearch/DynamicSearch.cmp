@@ -18,7 +18,7 @@
                   <div class="slds-grid">
                     <div class="slds-col slds-has-flexi-truncate">
                       <div class="slds-grid">
-                      	<ui:inputText aura:id="searchArea" placeholder="Enter name..." class="field" keyup="{!c.searchKeyChange}" updateOn="keyup"/>
+                      	<lightning:inputText aura:id="searchArea" placeholder="Enter name..." class="field" keyup="{!c.searchKeyChange}" updateOn="keyup"/>
                       </div>
                     </div>
                   </div>
