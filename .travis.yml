@@ -1,5 +1,4 @@
-sudo: true
-os: trusty
+os: linux
 cache: false
 
 env:
@@ -16,8 +15,8 @@ before_install:
 - "./sfdx/install"
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
-- mkdir -p .config/sfdx
-- echo '[\"isvte-sfdx-plugin\"]' > .config/sfdx/unsignedPluginAllowList.json
+- mkdir -p ~/.config/sfdx
+- echo '[\"isvte-sfdx-plugin\"]' > ~/.config/sfdx/unsignedPluginAllowList.json
 - sfdx plugins --core
 - sfdx plugins:install isvte-sfdx-plugin
 
