@@ -16,7 +16,7 @@ before_install:
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - mkdir -p ~/.config/sfdx
-- echo '[\"isvte-sfdx-plugin\"]' > ~/.config/sfdx/unsignedPluginAllowList.json
+- echo '["isvte-sfdx-plugin"]' > ~/.config/sfdx/unsignedPluginAllowList.json
 - sfdx plugins --core
 - sfdx plugins:install isvte-sfdx-plugin
 
