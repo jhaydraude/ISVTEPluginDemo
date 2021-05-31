@@ -30,7 +30,4 @@ before_install:
 script:
 - sfdx force:source:convert -d .mdout > results.txt
 - sfdx isvte:mdscan -d .mdout > results.json
-
-after_script:
-- 
-- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' https://hooks.slack.com/services/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"
+- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' https://hooks.slack.com/services/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"
