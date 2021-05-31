@@ -10,7 +10,7 @@ notifications:
     template:
       - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
-      - "Results: %{RESULT}"
+
 
 before_install:
 - export SFDX_AUTOUPDATE_DISABLE=false
@@ -30,4 +30,4 @@ before_install:
 
 script:
 - sfdx force:source:convert -d .mdout
-- RESULT=`sfdx isvte:mdscan -d .mdout`
+- sfdx isvte:mdscan -d .mdout
