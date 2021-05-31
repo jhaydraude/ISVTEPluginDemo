@@ -3,7 +3,6 @@ cache: false
 
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-- SLACKWEBHOOK=https://hooks.slack.com/services/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
 
 notifications:
   slack: 
@@ -34,4 +33,4 @@ script:
 
 after_script:
 - 
-- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' $SLACKWEBHOOK"
+- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' https://hooks.slack.com/services/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"
