@@ -3,9 +3,14 @@ cache: false
 
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+- RESULT="Placeholder"
 
 notifications:
   slack: isvtepluginworkspace:INkEQdIdxKwlCaGFXx63APPd
+    template:
+      - "%{repository_slug} (%{commit}) : %{message}"
+      - "Build details: %{build_url}"
+      - "Results: %{RESULT}"
 
 before_install:
 - export SFDX_AUTOUPDATE_DISABLE=false
@@ -25,4 +30,4 @@ before_install:
 
 script:
 - sfdx force:source:convert -d .mdout
-- sfdx isvte:mdscan -d .mdout
+- RESULT=`sfdx isvte:mdscan -d .mdout`
