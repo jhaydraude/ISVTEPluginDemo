@@ -3,6 +3,7 @@ cache: false
 
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+- SLACKWEBHOOK=https://hooks.slack.com/services/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
 
 notifications:
   slack: 
@@ -32,4 +33,5 @@ script:
 - sfdx isvte:mdscan -d .mdout > results.json
 
 after_script:
-- "curl -F file=@results.txt -F \"initial_comment=ISVTE Plugin Results\" -F channels=C022VLWQ3HS -H \"Authorization: Bearer xoxb-2076772047031-2121444365426-Ck2K6ITTHMu1G9RqnLlRhejo\" https://slack.com/api/files.upload"
+- 
+- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' $SLACKWEBHOOK"
