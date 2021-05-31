@@ -32,4 +32,4 @@ script:
 - sfdx isvte:mdscan -d .mdout > results.json
 
 after_script:
-- curl -F file=@results.txt -F "initial_comment=ISVTE Plugin Results" -F channels=C022VLWQ3HS -H "Authorization: Bearer xoxb-2076772047031-2121444365426-zmUCf3Diaft8ubJ4mNMlGC9O" https://slack.com/api/files.upload
+- "curl -F file=@results.txt -F \"initial_comment=ISVTE Plugin Results\" -F channels=C022VLWQ3HS -H \"Authorization: Bearer xoxb-2076772047031-2121444365426-zmUCf3Diaft8ubJ4mNMlGC9O\" https://slack.com/api/files.upload"
