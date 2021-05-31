@@ -6,7 +6,9 @@ env:
 - RESULT="Placeholder"
 
 notifications:
-  slack: isvtepluginworkspace:INkEQdIdxKwlCaGFXx63APPd
+  slack: 
+    rooms:
+      - isvtepluginworkspace:INkEQdIdxKwlCaGFXx63APPd
     template:
       - "%{repository_slug} (%{commit}) : %{message}"
       - "Build details: %{build_url}"
