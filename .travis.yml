@@ -1,16 +1,11 @@
 os: linux
 cache: false
-
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-
 notifications:
-  slack: 
+  slack:
     rooms:
-      - isvtepluginworkspace:INkEQdIdxKwlCaGFXx63APPd
-      
-
-
+      secure: pJE3e4zEwRXlfqzgcUbz9zz34hjv2VF7FRIeQS2MowOkH++RXS22YG74S8QrJOSbY2Wx4pFhBKaxr9JN0t5NBHr+/HUzfvmopZtV6k7S9wXtYiF3AnaJjpivHs8q5PMAhLJ5FpT9+4Fbcz1qgct1F396QDCjl5G0BL1r7AArA87oaN4oquUB615Tb2HHXts7LTsmTTmABZjXATKK6IP3bZF5U0vlCLlQxmvkaRzu5tTh+BLtTR+BumrjrbjPDIz26zxJI110H22zKJO3jtV7VrL70qWbDXMGX6tlz3p3OvBOdFOebW24JKiTKtBI0RIMSL0RO+L4BcCfkTAerkHfG7mjHKZk9ojSga6y/6Rp4L1R7ktl0/PxRnOGikiwOm9gNaod5X4FE5w2qKjYoOgtX9NNqPB7KmqOSQsQRpHB8dmWQD0aU9+v8IFKs0Cc2ZENpRwTT3yGkGjpUyBz3LBtjdEIQWlOHArfWJA6D9mqHcofrVTD9ACw7I6//mSaHIlbnR+r7/8EavdySqql84uCB8mk77+HZREgXT/gpR/rxBeDnA+2d8N6occ3Ip+OPml1ZZdTv/DYxIZ96xnUlNaoeivW8VIEfFMb69Ssw2vquGq3FisaGmxWPDZkWWZS5kqGNqS/i3rjMuHW5UgxjF+Qx7HkfF9gehgaXSrfDYEBEis=
 before_install:
 - export SFDX_AUTOUPDATE_DISABLE=false
 - export SFDX_USE_GENERIC_UNIX_KEYCHAIN=true
@@ -26,8 +21,9 @@ before_install:
 - echo '["isvte-sfdx-plugin"]' > ~/.config/sfdx/unsignedPluginAllowList.json
 - sfdx plugins --core
 - sfdx plugins:install isvte-sfdx-plugin
-
 script:
 - sfdx force:source:convert -d .mdout > results.txt
 - sfdx isvte:mdscan -d .mdout > results.json
-- "curl -X POST -H 'Content-type: application/json' -d '{\"text\":\"Hello\"}' https://hooks.slack.com/services/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"
+
+after_success:
+- "curl -F file=@results.txt -F \"initial_comment=ISVTE Plugin Scan Results\" -F channels=$SLACKCHANNEL -H \"Authorization: Bearer $SLACKAPITOKEN\" https://slack.com/api/files.upload"
