@@ -22,7 +22,7 @@ before_install:
 - sfdx plugins --core
 - sfdx plugins:install isvte-sfdx-plugin
 script:
-- sfdx force:source:convert -d .mdout > results.txt
-- sfdx isvte:mdscan -d .mdout > results.json
+- sfdx force:source:convert -d .mdout
+- sfdx isvte:mdscan -d .mdout > results.txt
 after_success:
 - "curl -F file=@results.txt -F \"initial_comment=ISVTE Plugin Scan Results\" -F channels=$SLACKCHANNEL -H \"Authorization: Bearer $SLACKAPITOKEN\" https://slack.com/api/files.upload"
